@@ -1,0 +1,139 @@
+{
+  "blocks": [
+    {
+      "title": "Entrantes, ensaladas y sopas",
+      "accent": false,
+      "items": [
+        { "name": "Ensalada de la Casa", "price": "500", "desc": "200 g" },
+        { "name": "Sopa del Día", "price": "1000", "desc": "Varían los gramos según el tipo de sopa" },
+        { "name": "Croquetas de la Casa", "price": "700", "desc": "6 unidades, 25 g c/u" },
+        { "name": "Empanadas de la Casa", "price": "800", "desc": "4 unidades, 53 g c/u" },
+        { "name": "Eperlan de Pescado", "price": "1900", "desc": "250 g" },
+        { "name": "Frituras de Malanga", "price": "700", "desc": "6 unidades, 25 g c/u" },
+        { "name": "Tour de Gustavo", "price": "2800", "desc": "Surtido de embutidos parrilleros 2 u, empanadas 2 u, croquetas 2 u, frituras de malanga 2 u, tostones 2 u, jamón y queso" },
+        { "name": "Gran Tour de Gustavo", "price": "4800", "desc": "Surtido de embutidos parrilleros 4 u, empanadas 4 u, croquetas 4 u, frituras de malanga 4 u, tostones 4 u, jamón y queso" },
+        { "name": "Embutidos Parrilleros", "price": "2500", "desc": "Surtido de embutidos parrilleros 4 u" },
+        { "name": "Ceviche", "price": "2900", "desc": "125 g" },
+        { "name": "Ensalada de Pulpo", "price": "3300", "desc": "210 g" }
+      ]
+    },
+    {
+      "title": "Sandwiches",
+      "accent": true,
+      "items": [
+        { "name": "Hamburguesa", "price": "800", "desc": "120 g carne" },
+        { "name": "Sandwich de Queso", "price": "800", "desc": "50 g" },
+        { "name": "Sandwich de Jamón", "price": "720", "desc": "50 g" },
+        { "name": "Sandwich de Jamón y Queso", "price": "990", "desc": "100 g" },
+        { "name": "Pan con Lechón", "price": "1000", "desc": "125 g" }
+      ]
+    },
+    {
+      "title": "Postres",
+      "accent": false,
+      "items": [
+        { "name": "Helado", "price": "500", "desc": "120 g" },
+        { "name": "Cake", "price": "600", "desc": "Porción de cake 300 g" },
+        { "name": "Cake a la Moda", "price": "900", "desc": "Porción de cake 300 g, 1 bola de helado 60 g" },
+        { "name": "Postre casero", "price": "450", "desc": "120 g" }
+      ]
+    },
+    {
+      "title": "Principales — carnes y aves",
+      "accent": true,
+      "items": [
+        { "name": "Chilindrón de Cordero", "price": "3100", "desc": "250 g" },
+        { "name": "Bistec de Cerdo", "price": "2600", "desc": "250 g" },
+        { "name": "Chuletón de Cerdo a la Brasa", "price": "2800", "desc": "450 g" },
+        { "name": "Lechón Asado", "price": "2500", "desc": "250 g" },
+        { "name": "Pollo a la Brasa", "price": "2500", "desc": "620 g" },
+        { "name": "Pollo Mediterráneo", "price": "2700", "desc": "300 g" }
+      ]
+    },
+    {
+      "title": "Mariscos",
+      "accent": false,
+      "items": [
+        { "name": "Filete de Pescado a la Plancha", "price": "2900", "desc": "250 g" },
+        { "name": "Pulpo al Ajillo", "price": "3100", "desc": "210 g" },
+        { "name": "Pulpo de Gustavo", "price": "3500", "desc": "210 g" },
+        { "name": "Pulpo a la Brasa", "price": "3500", "desc": "210 g" }
+      ]
+    },
+    {
+      "title": "Arroces, pastas y pizza",
+      "accent": true,
+      "items": [
+        { "name": "Arroz Marinero 2 pax", "price": "3500", "desc": "200 g arroz, frutos del mar" },
+        { "name": "Arroz Frito Especial", "price": "2500", "desc": "200 g" },
+        { "name": "Pizza Napolitana", "price": "1200", "desc": "30 cm diámetro" },
+        { "name": "Espaguetis Napolitano", "price": "1200", "desc": "160 g" },
+        { "name": "Pasta del Mar", "price": "2900", "desc": "160 g pasta, frutos del mar" }
+      ]
+    },
+    {
+      "title": "Pinchos a la parrilla",
+      "accent": false,
+      "items": [
+        { "name": "Pincho de Cordero", "price": "3100", "desc": "250 g" },
+        { "name": "Pincho de Cerdo", "price": "2600", "desc": "250 g" },
+        { "name": "Pincho de Pollo", "price": "2500", "desc": "250 g" },
+        { "name": "Pincho Mixto", "price": "3000", "desc": "250 g" }
+      ]
+    },
+    {
+      "title": "Coctelería",
+      "accent": true,
+      "items": [
+        { "name": "Canchánchara de Gustavo", "price": "900", "desc": "60 ml aguardiente, miel, limón" },
+        { "name": "Ron Collins", "price": "700", "desc": "60 ml ron blanco, agua gaseada, azúcar, limón" },
+        { "name": "Cuba Libre", "price": "700", "desc": "60 ml ron blanco, refresco cola, limón" },
+        { "name": "Cubata", "price": "800", "desc": "60 ml ron añejo, refresco cola" },
+        { "name": "Daiquirí", "price": "700", "desc": "60 ml ron blanco, azúcar, limón" },
+        { "name": "Mojito", "price": "950", "desc": "60 ml ron blanco, hierbabuena, agua gaseada, azúcar, limón" },
+        { "name": "Caipirissima", "price": "700", "desc": "60 ml ron blanco, azúcar, limón" },
+        { "name": "Caipiroska", "price": "700", "desc": "60 ml vodka, azúcar, limón" },
+        { "name": "Caipiriña", "price": "700", "desc": "60 ml aguardiente, azúcar, limón" },
+        { "name": "Tinto de Verano", "price": "800", "desc": "120 ml vino tinto, refresco limón" },
+        { "name": "Sangría", "price": "900", "desc": "120 ml vino tinto, limón, frutas, agua gaseada, azúcar" },
+        { "name": "Copa de Vino", "price": "750", "desc": "120 ml" }
+      ]
+    },
+    {
+      "title": "Bebidas frías",
+      "accent": false,
+      "items": [
+        { "name": "Limonada Natural", "price": "800", "desc": "Zumo de limón, azúcar" },
+        { "name": "Limonada Frescura", "price": "1000", "desc": "Zumo de limón, azúcar, hierbabuena" },
+        { "name": "Jugo de Frutas Naturales", "price": "800", "desc": "390 ml" },
+        { "name": "Batido de Frutas Naturales", "price": "900", "desc": "390 ml" },
+        { "name": "Refresco Importado", "price": "350", "desc": "330 ml" }
+      ]
+    },
+    {
+      "title": "Cervezas",
+      "accent": true,
+      "items": [
+        { "name": "Nacional", "price": "600", "desc": "355 ml" },
+        { "name": "Importada", "price": "350", "desc": "330 ml" },
+        { "name": "Stella", "price": "600", "desc": "330 ml" }
+      ]
+    },
+    {
+      "title": "Infusiones",
+      "accent": false,
+      "items": [
+        { "name": "Café Espresso", "price": "300", "desc": "60 ml" },
+        { "name": "Café Cortadito", "price": "325", "desc": "60 ml" },
+        { "name": "Café con Leche", "price": "350", "desc": "200 ml" },
+        { "name": "Café Bombón", "price": "450", "desc": "200 ml" },
+        { "name": "Café Adam", "price": "450", "desc": "60 ml" },
+        { "name": "Capuccino", "price": "400", "desc": "200 ml" },
+        { "name": "Frapuccino", "price": "400", "desc": "300 ml" },
+        { "name": "Té Caliente", "price": "200", "desc": "150 ml" },
+        { "name": "Chai Latte", "price": "300", "desc": "300 ml" },
+        { "name": "Carajillo", "price": "500", "desc": "60 ml" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin carta — El Patio de Gustavo</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .admin-page {
+      min-height: 100vh;
+      padding: clamp(1rem, 4vw, 2rem);
+      background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-deep) 100%);
+    }
+    .admin-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .admin-page h1 {
+      font-family: var(--font-display);
+      color: var(--color-brown);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      margin: 0 0 0.5rem;
+    }
+    .admin-page .admin-lead {
+      color: var(--color-brown-mid);
+      font-size: 0.9rem;
+      margin: 0 0 1.5rem;
+      line-height: 1.45;
+    }
+    .admin-card {
+      background: var(--color-white);
+      border-radius: 12px;
+      padding: 1.25rem 1.35rem;
+      border: 1px solid rgba(92, 64, 51, 0.12);
+      box-shadow: 0 4px 20px rgba(61, 43, 31, 0.06);
+      margin-bottom: 1rem;
+    }
+    .admin-card label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--color-brown);
+      margin-bottom: 0.35rem;
+    }
+    .admin-input {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      padding: 0.5rem 0.6rem;
+      border: 1px solid rgba(92, 64, 51, 0.2);
+      border-radius: 8px;
+      font-family: var(--font-body, system-ui, sans-serif);
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+    }
+    .admin-input--wide { max-width: none; }
+    .admin-check {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      margin-top: 0.65rem;
+      cursor: pointer;
+    }
+    .admin-check input { width: auto; margin: 0; }
+    .admin-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .admin-btn {
+      padding: 0.55rem 1rem;
+      border-radius: 8px;
+      border: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .admin-btn--primary {
+      background: var(--color-gold, #c9a227);
+      color: #2a2118;
+    }
+    .admin-btn--primary:hover { filter: brightness(1.05); }
+    .admin-btn--secondary {
+      background: rgba(92, 64, 51, 0.12);
+      color: var(--color-brown);
+    }
+    .admin-btn--danger {
+      background: #b33a3a;
+      color: #fff;
+    }
+    .admin-btn--small { padding: 0.35rem 0.65rem; font-size: 0.8rem; }
+    .admin-status {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--color-brown-mid);
+    }
+    .admin-status--error { color: #a22; }
+    .admin-section {
+      border: 1px solid rgba(201, 162, 39, 0.35);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(145deg, #fffefb 0%, #faf8f3 100%);
+    }
+    .admin-section__head {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    @media (min-width: 560px) {
+      .admin-section__head {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+    }
+    .admin-item-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+      margin-bottom: 0.65rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px dashed rgba(92, 64, 51, 0.15);
+    }
+    @media (min-width: 640px) {
+      .admin-item-row {
+        grid-template-columns: 1.4fr 0.5fr 1fr auto;
+        align-items: end;
+      }
+    }
+    .admin-back {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--color-brown);
+      font-size: 0.88rem;
+    }
+    .admin-back:hover { text-decoration: underline; }
+  </style>
+</head>
+<body class="admin-page">
+  <div class="admin-wrap">
+    <a class="admin-back" href="index.html">← Volver a la web</a>
+    <h1>Administración de la carta</h1>
+    <p class="admin-lead">
+      Inicia sesión con el correo que diste de alta en Firebase. Puedes cambiar precios, textos, añadir platos o secciones. Al guardar, la página principal se actualiza sola.
+    </p>
+
+    <div id="admin-auth" class="admin-card">
+      <form id="admin-login-form">
+        <label>Correo<input id="admin-email" class="admin-input" type="email" autocomplete="username" required /></label>
+        <label style="margin-top:0.75rem">Contraseña<input id="admin-password" class="admin-input" type="password" autocomplete="current-password" required /></label>
+        <div class="admin-actions">
+          <button type="submit" class="admin-btn admin-btn--primary">Entrar</button>
+        </div>
+      </form>
+      <p id="admin-status" class="admin-status" role="status"></p>
+    </div>
+
+    <div id="admin-app" class="admin-card" hidden>
+      <div class="admin-actions" style="margin-top:0">
+        <button type="button" id="admin-save" class="admin-btn admin-btn--primary">Guardar carta</button>
+        <button type="button" id="admin-seed" class="admin-btn admin-btn--secondary">Cargar carta de ejemplo</button>
+        <button type="button" id="admin-add-section" class="admin-btn admin-btn--secondary">+ Nueva sección</button>
+        <button type="button" id="admin-logout" class="admin-btn admin-btn--danger">Cerrar sesión</button>
+      </div>
+      <p id="admin-status-app" class="admin-status" role="status"></p>
+      <div id="admin-sections" style="margin-top:1rem"></div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/admin-app.js"></script>
+</body>
+</html>
