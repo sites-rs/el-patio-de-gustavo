@@ -46,6 +46,7 @@
   }
   var db = __db;
   var ref = db.collection(path.collection).doc(path.docId);
+  var debugHint = '(proyecto: ' + (cfg && cfg.projectId ? cfg.projectId : 'desconocido') + ', doc: ' + path.collection + '/' + path.docId + ')';
 
   showLoading();
 
@@ -59,7 +60,9 @@
       .then(function (snap) {
         if (!snap.exists) {
           root.innerHTML =
-            '<p class="menu-firestore-empty">La carta aún no está publicada. Entra en <strong>admin.html</strong>, inicia sesión y pulsa «Cargar carta de ejemplo» o «Guardar carta».</p>';
+            '<p class="menu-firestore-empty">La carta aún no está publicada ' +
+            MenuRender.escapeHtml(debugHint) +
+            '. Entra en <strong>admin.html</strong>, inicia sesión y pulsa «Cargar carta de ejemplo» o «Guardar carta».</p>';
           didRender = true;
           return;
         }
@@ -79,7 +82,9 @@
       clearTimeout(fallbackTimer);
       if (!snap.exists) {
         root.innerHTML =
-          '<p class="menu-firestore-empty">La carta aún no está publicada. Entra en <strong>admin.html</strong>, inicia sesión y pulsa «Cargar carta de ejemplo» o «Guardar carta».</p>';
+          '<p class="menu-firestore-empty">La carta aún no está publicada ' +
+          MenuRender.escapeHtml(debugHint) +
+          '. Entra en <strong>admin.html</strong>, inicia sesión y pulsa «Cargar carta de ejemplo» o «Guardar carta».</p>';
         return;
       }
       var data = snap.data();
@@ -94,7 +99,9 @@
         .then(function (snap) {
           if (!snap.exists) {
             root.innerHTML =
-              '<p class="menu-firestore-empty">La carta aún no está publicada. Entra en <strong>admin.html</strong>, inicia sesión y pulsa «Cargar carta de ejemplo» o «Guardar carta».</p>';
+              '<p class="menu-firestore-empty">La carta aún no está publicada ' +
+              MenuRender.escapeHtml(debugHint) +
+              '. Entra en <strong>admin.html</strong>, inicia sesión y pulsa «Cargar carta de ejemplo» o «Guardar carta».</p>';
             didRender = true;
             return;
           }
