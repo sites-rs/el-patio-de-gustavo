@@ -49,8 +49,34 @@
 
   showLoading();
 
+  // Plan B para móviles/redes: si la conexión en tiempo real se queda “colgada”,
+  // hacemos una lectura normal y pintamos el menú igualmente.
+  var didRender = false;
+  var fallbackTimer = setTimeout(function () {
+    if (didRender) return;
+    ref
+      .get()
+      .then(function (snap) {
+        if (!snap.exists) {
+          root.innerHTML =
+            '<p class="menu-firestore-empty">La carta aún no está publicada. Entra en <strong>admin.html</strong>, inicia sesión y pulsa «Cargar carta de ejemplo» o «Guardar carta».</p>';
+          didRender = true;
+          return;
+        }
+        var data = snap.data();
+        var blocks = data && data.blocks;
+        root.innerHTML = MenuRender.renderMenuBlocks(blocks);
+        didRender = true;
+      })
+      .catch(function (e) {
+        showError('No se pudo cargar la carta (' + (e && e.message ? e.message : 'error') + ').');
+      });
+  }, 8000);
+
   ref.onSnapshot(
     function (snap) {
+      didRender = true;
+      clearTimeout(fallbackTimer);
       if (!snap.exists) {
         root.innerHTML =
           '<p class="menu-firestore-empty">La carta aún no está publicada. Entra en <strong>admin.html</strong>, inicia sesión y pulsa «Cargar carta de ejemplo» o «Guardar carta».</p>';
@@ -60,8 +86,26 @@
       var blocks = data && data.blocks;
       root.innerHTML = MenuRender.renderMenuBlocks(blocks);
     },
-    function () {
-      showError('Error de red o permisos al leer la carta.');
+    function (err) {
+      clearTimeout(fallbackTimer);
+      // Si falla el realtime, aún puede funcionar la lectura normal.
+      ref
+        .get()
+        .then(function (snap) {
+          if (!snap.exists) {
+            root.innerHTML =
+              '<p class="menu-firestore-empty">La carta aún no está publicada. Entra en <strong>admin.html</strong>, inicia sesión y pulsa «Cargar carta de ejemplo» o «Guardar carta».</p>';
+            didRender = true;
+            return;
+          }
+          var data = snap.data();
+          var blocks = data && data.blocks;
+          root.innerHTML = MenuRender.renderMenuBlocks(blocks);
+          didRender = true;
+        })
+        .catch(function () {
+          showError('Error de red o permisos al leer la carta' + (err && err.message ? ': ' + err.message : '.') );
+        });
     }
   );
 })();
